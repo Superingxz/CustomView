@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 
+import com.jsonmo.pulltofreshandload.PullToRefreshRecyclerView;
 import com.myz.customrecycleview.adapter.MyRecycleViewAdapter;
 import com.myz.customrecycleview.view.MPullToRefreshRecyclerView;
-import com.myz.mrecyclerview.pulltorefresh.PullToRefreshRecyclerView;
 import com.myz.mrecyclerview.universaladapter.recyclerview.CommonRecycleViewAdapter;
 
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private CommonRecycleViewAdapter<String> adapter;
     private MyRecycleViewAdapter myRecycleViewAdapter;
     private List<String> list;
-    private ListView lv;
     private LinearLayoutManager mLayoutManager;
     private RecyclerView mRecyclerView;
 

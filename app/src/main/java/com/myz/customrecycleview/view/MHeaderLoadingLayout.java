@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jsonmo.pulltofreshandload.LoadingLayout;
 import com.myz.customrecycleview.R;
-import com.myz.mrecyclerview.pulltorefresh.LoadingLayout;
 
 
 /**
@@ -111,7 +111,7 @@ public class MHeaderLoadingLayout extends LoadingLayout {
 
     @Override
     protected View createLoadingView(Context context, AttributeSet attrs) {
-        View container = LayoutInflater.from(context).inflate(R.layout.pull_to_refresh_header, null);
+        View container = LayoutInflater.from(context).inflate(R.layout.mpull_to_refresh_header, null);
         return container;
     }
 

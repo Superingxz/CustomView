@@ -3,7 +3,6 @@ com.kingteller.mrecyclerview.utils
 com.myz.mrecyclerview.animation
 com.myz.mrecyclerview.baseadapter
 com.myz.mrecyclerview.bean
-com.myz.mrecyclerview.pulltorefresh
 com.myz.mrecyclerview.universaladapter
 com.myz.mrecyclerview.universaladapter.abslistview
 com.myz.mrecyclerview.universaladapter.recyclerview

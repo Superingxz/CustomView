@@ -3,8 +3,9 @@ package com.myz.customrecycleview.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.myz.mrecyclerview.pulltorefresh.LoadingLayout;
-import com.myz.mrecyclerview.pulltorefresh.PullToRefreshRecyclerView;
+import com.jsonmo.pulltofreshandload.LoadingLayout;
+import com.jsonmo.pulltofreshandload.PullToRefreshRecyclerView;
+
 
 /**
  * Created by Administrator on 2017/5/22.
