@@ -1,6 +1,6 @@
 # CustomRecycleView
 
-自定义RecyclerView 不同类型 自定义下拉刷新和上拉加载效果
+自定义ListView,RecyclerView 不同类型item
 
 gradle依赖
-compile 'com.myz.mrecyclerview:mrecyclerview:1.0.1'
+compile 'com.myz.customview:customview:1.0.2'
