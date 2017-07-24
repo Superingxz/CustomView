@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -24,15 +23,18 @@ import com.myz.mrecyclerview.utils.ImageLoaderUtils;
 
 import java.io.File;
 
-public class ViewHolderHelper extends RecyclerView.ViewHolder {
+/**
+ * Created by Administrator on 2017/7/24.
+ */
+
+public class BaseViewHoldHelper {
     private SparseArray<View> mViews;
     private int mPosition;
     private View mConvertView;
     private Context mContext;
     private int mLayoutId;
 
-    public ViewHolderHelper(Context context, View itemView, ViewGroup parent, int position) {
-        super(itemView);
+    public BaseViewHoldHelper(Context context, View itemView, ViewGroup parent, int position) {
         mContext = context;
         mConvertView = itemView;
         mPosition = position;
@@ -41,17 +43,24 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
 
     }
 
+    public int getPosition() {
+        return mPosition;
+    }
 
-    public static ViewHolderHelper get(Context context, View convertView,
+    public void setPosition(int position) {
+        this.mPosition = mPosition;
+    }
+
+    public static BaseViewHoldHelper get(Context context, View convertView,
                                        ViewGroup parent, int layoutId, int position) {
         if (convertView == null) {
             View itemView = LayoutInflater.from(context).inflate(layoutId, parent,
                     false);
-            ViewHolderHelper holder = new ViewHolderHelper(context, itemView, parent, position);
+            BaseViewHoldHelper holder = new BaseViewHoldHelper(context, itemView, parent, position);
             holder.mLayoutId = layoutId;
             return holder;
         } else {
-            ViewHolderHelper holder = (ViewHolderHelper) convertView.getTag();
+            BaseViewHoldHelper holder = (BaseViewHoldHelper) convertView.getTag();
             holder.mPosition = position;
             return holder;
         }
@@ -84,7 +93,7 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
      * @param text
      * @return
      */
-    public ViewHolderHelper setText(int viewId, String text) {
+    public BaseViewHoldHelper setText(int viewId, String text) {
         TextView tv = getView(viewId);
         tv.setText(text);
         return this;
@@ -97,80 +106,80 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
      * @param textRes
      * @return
      */
-    public ViewHolderHelper setText(int viewId, int textRes) {
+    public BaseViewHoldHelper setText(int viewId, int textRes) {
         TextView tv = getView(viewId);
         tv.setText(textRes);
         return this;
     }
-    public ViewHolderHelper setImageResource(int viewId, int resId) {
+    public BaseViewHoldHelper setImageResource(int viewId, int resId) {
         ImageView view = getView(viewId);
         view.setImageResource(resId);
         return this;
     }
 
-    public ViewHolderHelper setImageBitmap(int viewId, Bitmap bitmap) {
+    public BaseViewHoldHelper setImageBitmap(int viewId, Bitmap bitmap) {
         ImageView view = getView(viewId);
         view.setImageBitmap(bitmap);
         return this;
     }
 
-    public ViewHolderHelper setImageUrl(int viewId, String url) {
+    public BaseViewHoldHelper setImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
         ImageLoaderUtils.display(mContext,view,url);
         return this;
     }
-    public ViewHolderHelper setBigImageUrl(int viewId, String url) {
+    public BaseViewHoldHelper setBigImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
         ImageLoaderUtils.displayBigPhoto(mContext,view,url);
         return this;
     }
-    public ViewHolderHelper setSmallImageUrl(int viewId, String url) {
+    public BaseViewHoldHelper setSmallImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
         ImageLoaderUtils.displaySmallPhoto(mContext,view,url);
         return this;
     }
-    public ViewHolderHelper setImageRoundUrl(int viewId, String url) {
+    public BaseViewHoldHelper setImageRoundUrl(int viewId, String url) {
         ImageView view = getView(viewId);
         ImageLoaderUtils.displayRound(mContext,view,url);
         return this;
     }
-    public ViewHolderHelper setImageFile(int viewId, File url) {
+    public BaseViewHoldHelper setImageFile(int viewId, File url) {
         ImageView view = getView(viewId);
         ImageLoaderUtils.display(mContext,view,url);
         return this;
     }
-    public ViewHolderHelper setImageDrawable(int viewId, Drawable drawable) {
+    public BaseViewHoldHelper setImageDrawable(int viewId, Drawable drawable) {
         ImageView view = getView(viewId);
         view.setImageDrawable(drawable);
         return this;
     }
 
-    public ViewHolderHelper setBackgroundColor(int viewId, int color) {
+    public BaseViewHoldHelper setBackgroundColor(int viewId, int color) {
         View view = getView(viewId);
         view.setBackgroundColor(color);
         return this;
     }
 
-    public ViewHolderHelper setBackgroundRes(int viewId, int backgroundRes) {
+    public BaseViewHoldHelper setBackgroundRes(int viewId, int backgroundRes) {
         View view = getView(viewId);
         view.setBackgroundResource(backgroundRes);
         return this;
     }
 
-    public ViewHolderHelper setTextColor(int viewId, int textColor) {
+    public BaseViewHoldHelper setTextColor(int viewId, int textColor) {
         TextView view = getView(viewId);
         view.setTextColor(textColor);
         return this;
     }
 
-    public ViewHolderHelper setTextColorRes(int viewId, int textColorRes) {
+    public BaseViewHoldHelper setTextColorRes(int viewId, int textColorRes) {
         TextView view = getView(viewId);
         view.setTextColor(mContext.getResources().getColor(textColorRes));
         return this;
     }
 
     @SuppressLint("NewApi")
-    public ViewHolderHelper setAlpha(int viewId, float value) {
+    public BaseViewHoldHelper setAlpha(int viewId, float value) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             getView(viewId).setAlpha(value);
         } else {
@@ -183,19 +192,19 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public ViewHolderHelper setVisible(int viewId, boolean visible) {
+    public BaseViewHoldHelper setVisible(int viewId, boolean visible) {
         View view = getView(viewId);
         view.setVisibility(visible ? View.VISIBLE : View.GONE);
         return this;
     }
 
-    public ViewHolderHelper linkify(int viewId) {
+    public BaseViewHoldHelper linkify(int viewId) {
         TextView view = getView(viewId);
         Linkify.addLinks(view, Linkify.ALL);
         return this;
     }
 
-    public ViewHolderHelper setTypeface(Typeface typeface, int... viewIds) {
+    public BaseViewHoldHelper setTypeface(Typeface typeface, int... viewIds) {
         for (int viewId : viewIds) {
             TextView view = getView(viewId);
             view.setTypeface(typeface);
@@ -204,51 +213,51 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public ViewHolderHelper setProgress(int viewId, int progress) {
+    public BaseViewHoldHelper setProgress(int viewId, int progress) {
         ProgressBar view = getView(viewId);
         view.setProgress(progress);
         return this;
     }
 
-    public ViewHolderHelper setProgress(int viewId, int progress, int max) {
+    public BaseViewHoldHelper setProgress(int viewId, int progress, int max) {
         ProgressBar view = getView(viewId);
         view.setMax(max);
         view.setProgress(progress);
         return this;
     }
 
-    public ViewHolderHelper setMax(int viewId, int max) {
+    public BaseViewHoldHelper setMax(int viewId, int max) {
         ProgressBar view = getView(viewId);
         view.setMax(max);
         return this;
     }
 
-    public ViewHolderHelper setRating(int viewId, float rating) {
+    public BaseViewHoldHelper setRating(int viewId, float rating) {
         RatingBar view = getView(viewId);
         view.setRating(rating);
         return this;
     }
 
-    public ViewHolderHelper setRating(int viewId, float rating, int max) {
+    public BaseViewHoldHelper setRating(int viewId, float rating, int max) {
         RatingBar view = getView(viewId);
         view.setMax(max);
         view.setRating(rating);
         return this;
     }
 
-    public ViewHolderHelper setTag(int viewId, Object tag) {
+    public BaseViewHoldHelper setTag(int viewId, Object tag) {
         View view = getView(viewId);
         view.setTag(tag);
         return this;
     }
 
-    public ViewHolderHelper setTag(int viewId, int key, Object tag) {
+    public BaseViewHoldHelper setTag(int viewId, int key, Object tag) {
         View view = getView(viewId);
         view.setTag(key, tag);
         return this;
     }
 
-    public ViewHolderHelper setChecked(int viewId, boolean checked) {
+    public BaseViewHoldHelper setChecked(int viewId, boolean checked) {
         Checkable view = (Checkable) getView(viewId);
         view.setChecked(checked);
         return this;
@@ -257,21 +266,21 @@ public class ViewHolderHelper extends RecyclerView.ViewHolder {
     /**
      * 关于事件的
      */
-    public ViewHolderHelper setOnClickListener(int viewId,
+    public BaseViewHoldHelper setOnClickListener(int viewId,
                                                View.OnClickListener listener) {
         View view = getView(viewId);
         view.setOnClickListener(listener);
         return this;
     }
 
-    public ViewHolderHelper setOnTouchListener(int viewId,
+    public BaseViewHoldHelper setOnTouchListener(int viewId,
                                                View.OnTouchListener listener) {
         View view = getView(viewId);
         view.setOnTouchListener(listener);
         return this;
     }
 
-    public ViewHolderHelper setOnLongClickListener(int viewId,
+    public BaseViewHoldHelper setOnLongClickListener(int viewId,
                                                    View.OnLongClickListener listener) {
         View view = getView(viewId);
         view.setOnLongClickListener(listener);

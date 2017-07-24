@@ -1,1 +1,2 @@
-include ':app', ':mrecyclerview'
+include ':app', ':customview'
+project(':customview').projectDir = new File('mrecyclerview')

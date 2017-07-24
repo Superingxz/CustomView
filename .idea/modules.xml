@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomRecycleView.iml" filepath="$PROJECT_DIR$/CustomRecycleView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomView.iml" filepath="$PROJECT_DIR$/CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mrecyclerview/mrecyclerview.iml" filepath="$PROJECT_DIR$/mrecyclerview/mrecyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mrecyclerview/customview.iml" filepath="$PROJECT_DIR$/mrecyclerview/customview.iml" />
     </modules>
   </component>
 </project>
