@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.myz.customrecycleview.R;
-import com.myz.mrecyclerview.pulltorefresh.LoadingLayout;
+import com.myz.customview.pulltorefresh.LoadingLayout;
 
 /**
  * 这个类封装了下拉刷新的布局

@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.jsonmo.pulltofreshandload.PullToRefreshRecyclerView;
 import com.myz.customrecycleview.adapter.MyRecycleViewAdapter;
 import com.myz.customrecycleview.view.MPullToRefreshRecyclerView;
-import com.myz.mrecyclerview.universaladapter.recyclerview.CommonRecycleViewAdapter;
+import com.myz.customview.universaladapter.recyclerview.CommonRecycleViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
